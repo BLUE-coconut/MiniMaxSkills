@@ -12,7 +12,7 @@ MiniMaxSkills is a collection of AI agent skills powered by MiniMax multimodal m
 
 | Skill | Description | Key Features |
 |-------|-------------|--------------|
-| [mmVoice_Maker](./mmVoice_Maker/) | Complex text-to-speech production skill powered by MiniMax Voice API and FFmpeg. | Support multi-voice synthesis, can create audiobooks, podcasts, etc. Also provides voice cloning (10s–5min audio), voice design (text prompt), audio post-processing (merge, convert, normalize, trim) capabilities. |
+| [mmVoiceMaker](./mmVoiceMaker/) | Complex text-to-speech production skill powered by MiniMax Voice API and FFmpeg. | Support multi-voice synthesis, can create audiobooks, podcasts, etc. Also provides voice cloning (10s–5min audio), voice design (text prompt), audio post-processing (merge, convert, normalize, trim) capabilities. |
 | [mmEasyVoice](./mmEasyVoice/) | Text-to-speech skill based on MiniMax Speech model. | Quick text-to-speech conversion, simple and easy to use, enables Agent to "speak" |
 
 ### Music
@@ -34,4 +34,4 @@ Each skill has its own `SKILL.md` with detailed usage instructions and `referenc
 
 - Python 3.8+
 - MiniMax Pay-as-you-go API Key ([Get one here (overseas users)](https://platform.minimax.io/user-center/basic-information/interface-key), [Get one here (Chinese users)](https://platform.minimaxi.com/user-center/basic-information/interface-key))
-- FFmpeg (required for audio processing in mmVoice_Maker)
+- FFmpeg (required for audio processing in mmVoiceMaker)

@@ -8,7 +8,7 @@ Quick setup guide for MiniMax Voice Maker.
 
 ```bash
 # Navigate to project directory
-cd mmVoice_Maker
+cd mmVoiceMaker
 
 # Install Python packages
 pip install -r requirements.txt

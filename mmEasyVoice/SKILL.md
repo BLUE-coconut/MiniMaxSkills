@@ -1,5 +1,5 @@
 ---
-name: mmEasyVoice
+name: mm-easy-voice
 description: Simple text-to-speech skill using MiniMax Voice API. Converts text to audio with customizable voice selection. Use for generating speech audio from text.
 ---
 

@@ -243,6 +243,7 @@ def cmd_design(args):
         result = design_voice(
             prompt=args.description,
             preview_text=args.preview_text or "This is a preview of the designed voice.",
+            voice_id=args.voice_id,
         )
         
         # Use custom voice_id if different from returned one

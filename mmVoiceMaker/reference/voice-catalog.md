@@ -54,28 +54,7 @@ For non-professional scenarios, select a voice from **Section 2.2** based on the
    - Chinese content → select Chinese voices; Korean content → select Korean voices; English content → select English voices, etc.
    - If no exact language match exists in Section 2.2, fall back to the full **System Voices List** (Section 3) for the target language
 
-After narrowing down candidates by these three traits, proceed to personality matching below.
-
-### Step 3: Match Character Personality to Voice (avoid generic defaults)
-
-**⚠️ Do NOT always default to the same common voices for every character.** Each character has a unique personality — the voice should reflect it.
-
-Analyze the character's personality, temperament, and role in the story, then pick the voice whose description best matches. Pay special attention to the **Name**, **Description**, and **Best For** columns in the voice tables.
-
-**Personality mapping examples:**
-
-| Character Personality | Look for voices described as... |
-|---|---|
-| Domineering, arrogant, commanding | "Arrogant", "Dominant", "Bossy", "Commanding" |
-| Gentle, warm, kind | "Gentle", "Warm", "Kind", "Soft-spoken" |
-| Cold, aloof, mysterious | "Cold", "Cool", "Reserved", "Mysterious" |
-| Playful, mischievous, cute | "Playful", "Cute", "Playful", "Mischievous" |
-| Wise, mature, authoritative | "Wise", "Reliable", "Intellectual", "Mature" |
-| Innocent, naive, pure | "Innocent", "Pure", "Sweet" |
-| Rebellious, bold, free-spirited | "Unrestrained", "Bold", "Brave", "Energetic" |
-| Romantic, charming, flirty | "Charming", "Romantic", "Attractive", "Enchanting" |
-
-**Multi-character differentiation:** When multiple characters share the same gender and age group, you MUST differentiate them by personality. Never assign the same voice to characters with distinct personalities.
+After narrowing down candidates by these three traits, choose the best match based on the voice's **personality**, **tone**, and **use case** as described in each voice entry.
 
 ### Quick Reference Decision Flow
 
@@ -86,7 +65,7 @@ Content Type?
     ├── 1. Match Gender (mandatory)
     ├── 2. Match Age Group (Children/Youth/Adult/Elderly/Professional)
     ├── 3. Match Language (must match content language)
-    └── 4. Match Character Personality (pick distinctive voice, avoid generic defaults!)
+    └── 4. Choose best fit by personality/tone
 ```
 
 ---

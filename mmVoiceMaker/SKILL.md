@@ -100,13 +100,12 @@ Before selecting voices, you MUST always match gender first. This is non-negotia
 - Even if personality traits match, gender comes first
 - This is especially critical for classic literature, historical content, and professional narration
 
-**Examples (gender + personality matching):**
-| Character | Wrong Voice | Correct Voice | Reasoning |
-|-----------|-------------|---------------|-----------|
-| 唐三藏 (male, gentle monk) | `female-yujie` ❌ | `Chinese (Mandarin)_Gentleman` ✅ | Male + gentle/refined personality |
-| 林黛玉 (female, delicate maiden) | `male-qn-badao` ❌ | `female-shaonv` ✅ | Female + young, delicate temperament |
-| 曹操 (male, domineering warlord) | `female-chengshu` ❌ | `male-qn-badao` ✅ | Male + arrogant, commanding personality |
-| 王熙凤 (female, sharp & bossy) | `female-shaonv` ❌ | `Arrogant_Miss` ✅ | Female + arrogant, domineering personality |
+**Examples:**
+| Character | Wrong Voice | Correct Voice |
+|-----------|-------------|---------------|
+| 唐三藏 (male monk) | `female-yujie` ❌ | `Chinese (Mandarin)_Gentleman` ✅ |
+| 林黛玉 (female) | `male-qn-badao` ❌ | `female-shaonv` ✅ |
+| 曹操 (male warlord) | `female-chengshu` ❌ | `Chinese (Mandarin)_Unrestrained_Young_Man` ✅ |
 
 **Decision guide:**
 Evaluate based on:
@@ -215,27 +214,7 @@ Select from **voice_catalog.md Section 2.2**, following this strict priority hie
 1. **First: Match Gender** (non-negotiable) — Male characters MUST use male voices, female characters MUST use female voices
 2. **Second: Match Language** — The voice MUST match the content language (Chinese content → Chinese voice, Korean content → Korean voice, English content → English voice, etc.). Never assign a voice from the wrong language.
 3. **Third: Match Age** — Determine the age group (Children / Youth / Adult / Elderly / Professional) and select from the corresponding subsection in Section 2.2
-4. **Fourth: Match Personality & Character Traits** — This step is critical for making each character sound distinct and alive. Analyze the character's personality, temperament, and role in the story, then select the voice whose description best matches those traits.
-
-**⚠️ AVOID GENERIC DEFAULTS: Do NOT always fall back to the same safe/common voices (e.g., `female-shaonv`, `male-qn-qingse`, `Chinese (Mandarin)_Gentleman`) for every character.** The voice catalog offers many distinctive voices with unique personalities — use them! Each character in a story has a unique personality; the voice should reflect that personality.
-
-**Personality-to-Voice Matching Guide:**
-
-| Character Trait | Recommended Voice Style | Example voice_id (Chinese) |
-|---|---|---|
-| Domineering, arrogant | Arrogant, commanding voices | `male-qn-badao`, `badao_shaoye`, `Arrogant_Miss` |
-| Gentle, warm | Soft, warm voices | `Chinese (Mandarin)_Gentleman`, `Chinese (Mandarin)_Warm_Girl` |
-| Cold, aloof | Cool, distant voices | `lengdan_xiongzhang`, `Chinese (Mandarin)_Mature_Woman` |
-| Playful, mischievous | Playful, cute voices | `qiaopi_mengmei`, `tianxin_xiaoling` |
-| Wise, authoritative | Mature, steady voices | `Chinese (Mandarin)_Reliable_Executive`, `male-qn-jingying` |
-| Flirty, romantic | Charming, seductive voices | `wumei_yujie`, `junlang_nanyou`, `diadia_xuemei` |
-| Innocent, naive | Pure, youthful voices | `chunzhen_xuedi`, `Chinese (Mandarin)_Pure-hearted_Boy` |
-| Rebellious, unrestrained | Bold, free-spirited voices | `Chinese (Mandarin)_Unrestrained_Young_Man`, `male-qn-badao` |
-
-**Multi-character differentiation principle:** When a story has multiple characters of the same gender and similar age, you MUST differentiate them by personality. For example, in a story with three young men:
-- A sly trickster → `Chinese (Mandarin)_Unrestrained_Young_Man` (不羁青年)
-- A cute girl → `lovely_girl` (萌萌女童)
-
+4. **Fourth: Match Personality & Role** — Choose the best fit based on personality traits, tone, and character role
 
 **Voice Selection Decision Tree:**
 ```
@@ -245,13 +224,12 @@ Is this a professional domain (Story/News/Documentary)?
     Step 1: Match Gender
     ├── Male character → Male voices only
     └── Female character → Female voices only
-    Step 2: Match Language
-    └── Filter to voices matching the content language
-    Step 3: Match Age Group
+    Step 2: Match Age Group
     └── Children / Youth / Adult / Elderly / Professional
-    Step 4: Match Personality & Character Traits
-    └── Analyze character personality → pick the most fitting distinctive voice
-        (Do NOT default to generic voices — match personality!)
+    Step 3: Match Language
+    └── Filter to voices matching the content language
+    Step 4: Match Personality & Role
+    └── Choose best fit by tone, personality, character role
 ```
 
 **Step 2.3: Emotions Segmentation** *(For non-2.8 series models only)*
@@ -273,26 +251,21 @@ Finally, review and optimize your script:
 - Ensure consistency in voice and emotion tags
 - **Critical check for multi-voice content**: For audiobooks, multi-voice fiction, or content where dialogue is presented from a first-person perspective, verify that narration and dialogue mixed in the same sentence are properly split.
 
-  ⚠️ CRITICAL: **When splitting IS needed (first-person dialogue in fiction/audiobooks):**
+  **When splitting IS needed (first-person dialogue in fiction/audiobooks):**
   
-  Example 1: `"John asked, 'Where are you going?'"` should be split into:
+  Example: `"John asked, 'Where are you going?'"` should be split into:
   - Segment 1: `"John asked, "` - uses narrator voice (describes who is speaking)
   - Segment 2: `"Where are you going?"` - uses the character's voice (actual dialogue in first-person)
 
-  Example 2: `"他耸了耸肩，看向远方，缓缓开口道'我也不知道。'"` should be split into:
-  - Segment 1: `"他耸了耸肩，看向远方，缓缓开口道'"` - uses narrator voice (describes who is speaking)
-  - Segment 2: `"我也不知道。'"` - uses the character's voice (actual dialogue in first-person)
-
   This ensures proper voice differentiation: descriptive narration uses the narrator's voice, while the character's spoken words use the character's designated voice.
 
-  ⚠️ CRITICAL: **When splitting is NOT needed (third-person quotes in podcast/documentary/news):**
+  **When splitting is NOT needed (third-person quotes in podcast/documentary/news):**
   
   In podcasts, documentaries, or news reports, quoted speech is typically presented in third-person narrative style - the speaker's words are being reported, not performed. Keep these as one segment with the narrator's voice and remove the speaker's name at the beginning:
   
   - `"Welcome to our show." → narrator voice, remove the speaker's name (like "The host said:") at the beginning
   - `"According to experts, 'This technology represents a significant breakthrough.'" → keep as one segment (narrator voice)
   - `"Scientists noted, 'The experimental results exceeded our expectations.'" → keep as one segment (narrator voice)
-  
 - **If the split is missing**: Go back to Step 2.1 and ensure dialogue portions are separated from narration with appropriate role labels.
 
 **Create segments.json:**
@@ -348,9 +321,9 @@ Before proceeding to validation and generation, present the segmentation plan to
 I've analyzed the text and created a segmentation plan:
 
 **Roles and Voices:**
-- Narrator: audiobook_male_1 (clear articulation, good pacing)
+- Narrator: male-qn-jingying (deep, authoritative, suitable for storytelling)
 - Protagonist: female-shaonv (bright, energetic, youthful)
-- Antagonist: Chinese (Mandarin)_Unrestrained_Young_Man (cool, menacing)
+- Antagonist: male-qn-qingse (cool, menacing)
 
 **Model:** speech-2.8-hd (recommended - automatic emotion matching)
 **Language:** Chinese

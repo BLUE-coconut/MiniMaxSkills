@@ -20,6 +20,7 @@ MiniMaxSkills is a collection of AI agent skills powered by MiniMax multimodal m
 | Skill | Description | Key Features |
 |-------|-------------|--------------|
 | [mmMusicMaker](./mmMusicMaker/) | Music generation skill powered by MiniMax Music API. | Support standard songs with lyrics, pure instrumental music, melodic chanting/humming, structured prompt crafting, multiple output formats (hex/url) |
+| [mmMusicExpert](./mmMusicExpert/) | Interactive music creation skill powered by MiniMax Music API. Guides users step-by-step to achieve fine-grained control over every aspect of the music. | 4-step guided workflow (requirement gathering → song blueprint → generation → feedback iteration); fine-grained control over per-section dynamics, instrumentation layering, vocal transitions, and energy arc via blueprint design + annotated lyrics with parenthetical directions; no music background required |
 
 ## Getting Started
 

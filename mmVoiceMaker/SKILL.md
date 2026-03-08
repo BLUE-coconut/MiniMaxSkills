@@ -1,5 +1,5 @@
 ---
-name: mmVoice_Maker
+name: mm-voice-maker
 description: Enables voice synthesis, voice cloning, voice design, and audio post-processing using MiniMax Voice API and FFmpeg. Use when converting text to speech, creating custom voices, or processing/merging audio.
 ---
 

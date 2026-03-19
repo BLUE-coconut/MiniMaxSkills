@@ -12,15 +12,13 @@ MiniMaxSkills is a collection of AI agent skills powered by MiniMax multimodal m
 
 | Skill | Description | Key Features |
 |-------|-------------|--------------|
-| [mmVoiceMaker](./mmVoiceMaker/) | Complex text-to-speech production skill powered by MiniMax Voice API and FFmpeg. | Support multi-voice synthesis, can create audiobooks, podcasts, etc. Also provides voice cloning (10s–5min audio), voice design (text prompt), audio post-processing (merge, convert, normalize, trim) capabilities. |
-| [mmEasyVoice](./mmEasyVoice/) | Text-to-speech skill based on MiniMax Speech model. | Quick text-to-speech conversion, simple and easy to use, enables Agent to "speak" |
+| [MiniMaxTTS](./MiniMaxTTS/) | Text-to-speech skill powered by MiniMax Voice API and FFmpeg. | Support multi-voice synthesis, can create audiobooks, podcasts, etc. Also provides voice cloning (10s–5min audio), voice design (text prompt), audio post-processing (merge, convert, normalize, trim) capabilities. Quick text-to-speech conversion, simple and easy to use, enables Agent to "speak". |
 
 ### Music
 
 | Skill | Description | Key Features |
 |-------|-------------|--------------|
-| [mmMusicMaker](./mmMusicMaker/) | Music generation skill powered by MiniMax Music API. | Support standard songs with lyrics, pure instrumental music, melodic chanting/humming, structured prompt crafting, multiple output formats (hex/url) |
-| [mmMusicExpert](./mmMusicExpert/) | Interactive music creation skill powered by MiniMax Music API. Guides users step-by-step to achieve fine-grained control over every aspect of the music. | 4-step guided workflow (requirement gathering → song blueprint → generation → feedback iteration); fine-grained control over per-section dynamics, instrumentation layering, vocal transitions, and energy arc via blueprint design + annotated lyrics with parenthetical directions; no music background required |
+| [MiniMaxMusicMaker](./MiniMaxMusicMaker/) | Music generation skill powered by MiniMax Music API. | Support standard songs with lyrics, pure instrumental music, melodic chanting/humming, structured prompt crafting, multiple output formats (hex/url). Interactive guided workflow for fine-grained control over every aspect of the music. |
 
 ## Getting Started
 
@@ -35,4 +33,24 @@ Each skill has its own `SKILL.md` with detailed usage instructions and `referenc
 
 - Python 3.8+
 - MiniMax Pay-as-you-go API Key ([Get one here (overseas users)](https://platform.minimax.io/user-center/basic-information/interface-key), [Get one here (Chinese users)](https://platform.minimaxi.com/user-center/basic-information/interface-key))
-- FFmpeg (required for audio processing in mmVoiceMaker)
+- FFmpeg (required for audio processing in MiniMaxTTS)
+
+## Additional Notes
+
+When using OpenClaw integrated with Feishu, if you need to convert audio files into Feishu voice messages, use the following prompt:
+
+```
+When OpenClaw sends audio via the Feishu message tool, it sends as a "file" (likely not distinguishing the audio type). Please follow the native Feishu API requirements below to convert and send the audio directly as a Feishu voice message.
+# 1. Upload the file to Feishu first
+POST https://open.feishu.cn/open-apis/im/v1/files
+file_type: "opus"  # Critical!
+# 2. Then send a voice message with msg_type: "audio"
+POST https://open.feishu.cn/open-apis/im/v1/messages
+{
+  msg_type: "audio",  # Critical!
+  "content": {
+    "file_key": "xxx",
+    "duration": 3000  # Note: must specify the actual duration of the audio
+  }
+}
+```

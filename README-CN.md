@@ -16,19 +16,31 @@ MiniMaxSkills 是 MiniMax 官方提供的 AI Agent 技能库，基于 MiniMax �
 |------|------|----------|
 | [MiniMaxMusicMaker](./MiniMaxMusicMaker/) | 基于 MiniMax Music API 的音乐生成技能。 | 支持带歌词的完整歌曲生成、纯音乐/器乐生成、旋律哼唱/吟唱生成。交互式引导工作流，支持对音乐各维度的精细控制。 |
 
+### 视频
+
+| 技能 | 简介 | 核心功能 |
+|------|------|----------|
+| [MiniMaxVideoMaker](./MiniMaxVideoMaker/) | 基于 MiniMax Video API（Hailuo-2.3/Hailuo-02/S2V-01）的视频生成技能。 | 支持文本生成视频、图片生成视频、首尾帧控制、主体参考（人脸一致性）等模式。支持写实、动漫、漫画、商业、奇幻、纪录片等多种风格。支持通过 MiniMax Music API 或本地音频文件添加背景音乐。支持长视频生成（30秒+），通过自动场景链接和末帧提取实现。 |
+
+### 一站式
+
+| 技能 | 简介 | 核心功能 |
+|------|------|----------|
+| [MiniMax-Multimodal-Toolkit](./MiniMax-Multimodal-Toolkit/) | 整合语音、音乐、视频能力的统一多模态内容创作技能。 | TTS 语音合成（文本转语音、声音克隆、声音设计、多片段生成）、音乐生成（歌曲、纯音乐）、视频创作（文本生成视频、图片生成视频、首尾帧控制、主体参考、模板、长视频多场景）、媒体处理（音视频格式转换、拼接、裁剪、提取）。一个技能，全部搞定。 |
+
 ## 快速开始
 
 每个技能目录下都有 `SKILL.md`（详细使用说明）和 `reference/`（参考文档）。开始使用：
 
 1. 进入你需要使用的技能目录
 2. 阅读 `SKILL.md` 了解完整工作流程
-3. 设置所需的 API Key（`MINIMAX_VOICE_API_KEY` 或 `MINIMAX_MUSIC_API_KEY`），即 MiniMax 按量计费 API Key
+3. 设置所需的 API Key（`MINIMAX_VOICE_API_KEY` 或 `MINIMAX_MUSIC_API_KEY`）
 4. 按照步骤指引操作
 
 ## 环境要求
 
 - Python 3.8+
-- MiniMax 按量计费 API Key（[中国用户前往获取](https://platform.minimaxi.com/user-center/basic-information/interface-key), [海外用户前往获取](https://platform.minimax.io/user-center/basic-information/interface-key)）
+- MiniMax API Key（[中国用户前往获取](https://platform.minimaxi.com/user-center/basic-information/interface-key), [海外用户前往获取](https://platform.minimax.io/user-center/basic-information/interface-key)）
 - FFmpeg（MiniMaxTTS 的音频处理功能需要）
 
 ## 其他说明

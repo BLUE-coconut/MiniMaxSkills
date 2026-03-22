@@ -20,19 +20,31 @@ MiniMaxSkills is a collection of AI agent skills powered by MiniMax multimodal m
 |-------|-------------|--------------|
 | [MiniMaxMusicMaker](./MiniMaxMusicMaker/) | Music generation skill powered by MiniMax Music API. | Support standard songs with lyrics, pure instrumental music, melodic chanting/humming, structured prompt crafting, multiple output formats (hex/url). Interactive guided workflow for fine-grained control over every aspect of the music. |
 
+### Video
+
+| Skill | Description | Key Features |
+|-------|-------------|--------------|
+| [MiniMaxVideoMaker](./MiniMaxVideoMaker/) | Video generation skill powered by MiniMax Video API (Hailuo-2.3/Hailuo-02/S2V-01). | Support text-to-video, image-to-video, start-end frame, subject reference (face consistency) modes. Multiple video styles including realistic, anime, comic, commercial, fantasy, and documentary. Supports adding BGM via MiniMax Music API or local audio files. Long video generation (30s+) via automatic scene chaining with last-frame extraction. |
+
+### All-in-One
+
+| Skill | Description | Key Features |
+|-------|-------------|--------------|
+| [MiniMax-Multimodal-Toolkit](./MiniMax-Multimodal-Toolkit/) | Unified multimodal content creation skill combining voice, music, and video capabilities. | TTS voice synthesis (text-to-speech, voice cloning, voice design, multi-segment generation), music generation (songs, instrumentals), video creation (text-to-video, image-to-video, start-end frame, subject reference, templates, long-form multi-scene), and media processing (audio/video format conversion, concatenation, trimming, extraction). One skill to rule them all. |
+
 ## Getting Started
 
 Each skill has its own `SKILL.md` with detailed usage instructions and `reference/` docs. To get started:
 
 1. Navigate to the skill directory you want to use
 2. Read the `SKILL.md` for the complete workflow
-3. Set the required API key (`MINIMAX_VOICE_API_KEY` or `MINIMAX_MUSIC_API_KEY`), i.e. MiniMax Pay-as-you-go API Key
+3. Set the required API key (`MINIMAX_VOICE_API_KEY` or `MINIMAX_MUSIC_API_KEY`)
 4. Follow the step-by-step guide
 
 ## Requirements
 
 - Python 3.8+
-- MiniMax Pay-as-you-go API Key ([Get one here (overseas users)](https://platform.minimax.io/user-center/basic-information/interface-key), [Get one here (Chinese users)](https://platform.minimaxi.com/user-center/basic-information/interface-key))
+- MiniMax API Key ([Get one here (overseas users)](https://platform.minimax.io/user-center/basic-information/interface-key), [Get one here (Chinese users)](https://platform.minimaxi.com/user-center/basic-information/interface-key))
 - FFmpeg (required for audio processing in MiniMaxTTS)
 
 ## Additional Notes

@@ -1,4 +1,4 @@
-# MiniMax Music Generation API (music-2.5 / music-2.5+)
+# MiniMax Music Generation API (music-2.5)
 
 Source: https://platform.minimaxi.com/docs/api-reference/music-generation
 
@@ -13,12 +13,11 @@ Source: https://platform.minimaxi.com/docs/api-reference/music-generation
 ## Request (JSON)
 
 Required:
-- `model`: string — `music-2.5+` (recommended) or `music-2.5`
-- `lyrics`: string (1–3500 chars) — required for non-instrumental. Use `\n` for line breaks. Structure tags: `[Verse]`, `[Chorus]`, `[Bridge]`, `[Intro]`, `[Outro]`, etc.
+- `model`: string — `music-2.5`
+- `lyrics`: string (1–3500 chars) — required. Use `\n` for line breaks. Structure tags: `[Verse]`, `[Chorus]`, `[Bridge]`, `[Intro]`, `[Outro]`, etc.
 
 Optional:
-- `prompt`: string (0–2000 chars) — style description. Required for `music-2.5+` instrumental mode.
-- `is_instrumental`: boolean — `music-2.5+` only. When true, generates pure music (no vocals); `lyrics` is not required.
+- `prompt`: string (0–2000 chars) — style description, optional but recommended.
 - `lyrics_optimizer`: boolean — auto-generate lyrics from prompt when lyrics is empty.
 - `stream`: boolean (default `false`)
 - `output_format`: `hex` (default) or `url`. URL valid for 24 hours.
@@ -32,10 +31,9 @@ Optional:
 
 ```json
 {
-  "model": "music-2.5+",
+  "model": "music-2.5",
   "prompt": "indie folk, melancholic, introspective",
   "lyrics": "[verse]\n...\n[chorus]\n...",
-  "is_instrumental": false,
   "aigc_watermark": false,
   "audio_setting": {
     "sample_rate": 44100,
@@ -54,6 +52,6 @@ Optional:
 
 ## Notes
 
-- `music-2.5+` with `is_instrumental=true`: `prompt` is required, `lyrics` can be omitted.
-- `music-2.5`: `prompt` is optional but recommended.
+- `music-2.5` does not support `is_instrumental`. For instrumental music, use lyrics `[intro] [outro]` and add `pure music, no lyrics` to the prompt.
+- `prompt` is optional but recommended for better style control.
 - `stream=true` only supports `hex` output.
